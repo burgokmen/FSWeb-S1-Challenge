@@ -235,8 +235,17 @@ Aşağıdakileri yapmak için fenomenEkle'i kullanın:
 
 ÖRNEK: fenomenEkle(fenomenler, 6, "Workintech", 10000000, 2022, "Instagram") çağrıldığında dizinin sonuna yukarıdaki nesne en sona eklenerek yeni fenomenler dizisini döndürmelidir. */
 
-function fenomenEkle(/*kod*/) {
-  /*kod*/
+function fenomenEkle(arr, number, profile, followers, posts, platform) {
+  const newArr = [...arr];
+  const obj = {
+    number: number,
+    profile: profile,
+    followers: followers,
+    posts: posts,
+    platform: platform
+  }
+  newArr.push(obj);
+  return newArr;
 }
 
 
@@ -248,8 +257,14 @@ Aşağıdakileri yapmak için enFenomenler'yi kullanın:
 ÖRNEK: enFenomenler(fenomenler) çağrıldığında sonuç olarak ["Instagram", "Cristiano Ronaldo", ... "Khabane lame"] dönemelidir
 */
 
-function enFenomenler(/*kod*/) {
-  /*kod*/
+function enFenomenler(arr) {
+  const newArr = [];
+  for (let i=0; i<arr.length; i++){
+    if (arr[i]['followers'] > 100000000 ){
+      newArr.push(arr[i]['profile']);
+    }
+  }
+  return newArr;
 }
 
 
@@ -259,7 +274,7 @@ Aşağıdakileri yapmak için fenomenGonderimSayisi'nı kullanın:
 2. ikinci parametre olarak fenomen profil adını (profile) alın
 3. Fenomenin gönderim(posts) sayısını döndürün
 
-ÖRNEK: fenomenGonderimSayisi(fenomenler, 'Will Smith') çağrıldığında "136" dönmelidir
+ÖRNEK: fenomenGonderimSayisi(fenomenler, 'Will Smith') çağrıldığında "13" dönmelidir
 */
 
 function fenomenGonderimSayisi(/*kod*/){
