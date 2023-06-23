@@ -149,11 +149,13 @@ Aşağıdakileri konsolda gösterim (console.log) işlemi gerçekleştirerek, yu
 (işlev yazmanıza gerek yok) */
 
 //(1) Dizideki ilk fenomen (0. dizin) profil (profile) adı
-
+console.log(fenomenler[0]['profile'])
 
 //(2) Dizideki üçüncü fenomenin (2. dizin) takipçi (followers) sayısı
+console.log(fenomenler[2]['followers'])
 
-
+fenomenler[6]['profile'] = 'Justin Bieber'
+console.log(fenomenler[6]['profile'])
 /* Görev 2 (otomatik kontrol testi yapılmayacak):
 (işlev yazmanıza gerek yok)
 Fenomenler dizisinde bir yazım hatası var 😱 7. sıradaki fenomen 'Justin Bieber' ın soyismi 'Biber' olarak yanlış yazılmış. Bu sorunu düzeltin ve çalışmanızı kontrol etmek için console.log() yapın.
@@ -168,9 +170,10 @@ Aşağıdaki işlemleri yapmak için indekseGoreFenomen işlevini kullanın:
 NOT: DÖNDÜĞÜNÜZ DİZİN YUKARIDAKİ BİÇİMLE EŞLEŞMESİ GEREKİR, YA DA TESTİ GEÇMEYECEKTİR!
 ÖRNEK: fenomenler dizisi ve 3 sayısı ile indekseGoreFenomen çağrılırsa, `3. indekste bulunan fenomen: Leo Messi' */
 
-function indekseGoreFenomen(/*kod*/) {
-  /*kod*/
+function indekseGoreFenomen(arr, indeks) {
+  return `${indeks}. indekste bulunan fenomen: ${arr[indeks]['profile']}`;
 }
+
 
 
 
@@ -182,9 +185,15 @@ Aşağıdakileri yapmak için profilListesi'ni kullanın:
 🌟 Dönüş ÖRNEĞİ: ["Instagram", "Cristiano Ronaldo", "Kylie"....]
 */
 
-function profilListesi(/*kod*/) {
-  /*kod*/
+function profilListesi(arr) {
+  const newArr = [...arr];
+  const newArr2 = [];
+  for (let i=0; i<newArr.length; i++){
+    newArr2.push(newArr[i]['profile'])
+  }
+  return newArr2;
 }
+//splice nasil yapiliyor sor??
 
 
 
@@ -197,8 +206,14 @@ Aşağıdakileri yapmak için fenomenSil'i kullanın:
 5. Ortaya çıkan diziyi döndürün
 
 ÖRNEK: fenomenSil işlevi fenomenler dizisi ve 0 indeks sayısı ile çağrılırsa, veri kümemizden 'Instagram' kaldırılmış olarak döndürür. */
-function fenomenSil(/*kod*/) {
-  /*kod*/
+function fenomenSil(arr, ind) {
+  const newArr = [...arr];
+  for (let i=0; i<newArr.length; i++){
+    if (i == ind){
+      newArr.splice(i, 1);
+    }
+  }
+  return newArr;
 }
 
 
