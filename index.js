@@ -270,7 +270,7 @@ Aşağıdakileri yapmak için fenomenGonderimSayisi'nı kullanın:
 
 function fenomenGonderimSayisi(arr, profi) {
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i]["profile"] == profi) {
+    if (arr[i]["profile"] === profi) {
       return arr[i]["posts"];
     }
   }
