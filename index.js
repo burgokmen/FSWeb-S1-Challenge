@@ -189,6 +189,7 @@ function profilListesi(arr) {
   }
   return newArr2;
 }
+
 //splice nasil yapiliyor sor??
 
 /* Görev 5:
@@ -287,21 +288,18 @@ Not: Gönderi sayısı belli olmayan (NA) hesaba katmayın.
 */
 
 function platformaGoreCokGonderiYapanFenomen(arr, platformName) {
-  const newArr = [];
   let largest = 0;
   for (let i = 0; i < arr.length; i++) {
     if (arr[i]["platform"] == platformName) {
-      newArr.push(arr[i]);
+      if (arr[i]["posts"] > largest) {
+        largest = arr[i]["posts"];
+      }
     }
   }
-  for (let i = 0; i < newArr.length; i++) {
-    if (newArr[i]["posts"] > largest) {
-      largest = newArr[i]["posts"];
-    }
-  }
-  for (let i = 0; i < newArr.length; i++) {
-    if (largest == newArr[i]["posts"]) {
-      return newArr[i]["profile"];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (largest == arr[i]["posts"]) {
+      return arr[i]["profile"];
     }
   }
 }
